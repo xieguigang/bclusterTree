@@ -15,3 +15,5 @@ binaryTree.node <- function(key, x, name) {
        right   = -1
   );
 }
+
+setClass("binTree", representation(index = "any", members = "binTree", left = "integer", right = "integer"));
