@@ -6,14 +6,12 @@
 #'     \code{members} slot of the created new binary tree node list object.
 #'
 binaryTree.node <- function(key, x, name) {
-  values         <- list();
-  values[[name]] <- x;
-
-  list(key     = key,
-       members = values,
-       left    = -1,
-       right   = -1
+  new("binTree", 
+	  index = key, 
+	  members = list(x),
+	  left = -1,
+	  right = -1
   );
 }
 
-setClass("binTree", representation(index = "any", members = "binTree", left = "integer", right = "integer"));
+setClass("binTree", representation(index = "any", members = "list", left = "integer", right = "integer"));
