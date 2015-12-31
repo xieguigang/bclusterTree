@@ -5,13 +5,14 @@
 #' @details the initial node content data object \code{x} is already includes into the
 #'     \code{members} slot of the created new binary tree node list object.
 #'
-binaryTree.node <- function(key, x, name) {
+binaryTree.node <- function(key, i) {
   new("binTree", 
 	  index = key, 
-	  members = list(x),
+	  members = i,
 	  left = -1,
 	  right = -1
   );
 }
 
-setClass("binTree", representation(index = "any", members = "list", left = "integer", right = "integer"));
+# the index pointer just store in binTree S4 class object
+setClass("binTree", representation(index = "integer", members = "integer", left = "integer", right = "integer"));
