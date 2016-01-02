@@ -5,12 +5,12 @@
 #' @details the initial node content data object \code{x} is already includes into the
 #'     \code{members} slot of the created new binary tree node list object.
 #'
-binaryTree.node <- function(key, i) {
+binaryTree.node <- function(i) {
   new("binTree", 
-	  index = key, 
+	  index   = i, 
 	  members = i,
-	  left = -1,
-	  right = -1
+	  left    = -1,
+	  right   = -1
   );
 }
 
