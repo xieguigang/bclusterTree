@@ -9,8 +9,8 @@ binaryTree.node <- function(i) {
   new("binTree", 
 	  index   = i, 
 	  members = i,
-	  left    = -1,
-	  right   = -1
+	  left    = NULL,
+	  right   = NULL
   );
 }
 
@@ -22,7 +22,7 @@ setClass("binTree", representation(
 	# binary tree cluster node
 	members = "integer", 
 	# the location of the left node
-	left    = "integer", 
+	left    = "binTree", 
 	# the location of the right node
-	right   = "integer"
+	right   = "binTree"
 ));
