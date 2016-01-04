@@ -8,15 +8,60 @@
 #'     which will append to left node
 #'
 #' @param objects this parameter should be an object list.
-#' @param key a lambda function that create index key of the element object 
-#'     in the objects parameter.
 #'
-buildBTree = function(objects, key, compares) {
+buildBTree = function(objects, compares) {
 	root = binaryTree.node(1);
+	keys = names(objects);
+	tree = list();
 	
-	for(item in objects) {
-		index = key(item);
-		
+	tree[[1]] = root;
+	
+	if (is.null(keys)) {
+		keys = 1:length(objects);
 	}
+	
+	evalIndex = function(bin, y) {
+		x = object[[bin @ index]];
+		i = compares(x, y);
+		i;
+	}
+	
+	index = 1;
+	
+	for(item in objects) {		
+		bin   = root;
+		index = index + 1;
+	
+		repeat {
+			order = evalIndex(bin, item);
+			
+			if (order == 0) {
+				# is a cluster member
+				bin @ members = append(bin @ members, index);
+				break;
+			} else if (order == 1) {
+				right = tree[[bin@right]];
+				
+				if (is.null(right)) {
+					# append right
+					tree[[length(tree) + 1]] = binaryTree.node(index);
+					break;
+				} else {
+					bin = right;
+				}
+			} else {
+				left = tree[[bin@left]];
+				
+				if (is.null(left)) {
+					tree[[length(tree) + 1]] = binaryTree.node(index);
+					break;
+				} else {
+					bin = left;
+				}
+			}
+		}
+	}
+	
+	tree;
 }
 
