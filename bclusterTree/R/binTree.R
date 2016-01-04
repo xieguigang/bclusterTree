@@ -28,12 +28,8 @@ buildBTree = function(objects, compares) {
 	
 	index = 1;
 	
-	for(item in objects) {		
-		bin   = root;
-		index = index + 1;
-	
-		repeat {
-			order = evalIndex(bin, item);
+	internal = function(bin, index, item) {
+		order = evalIndex(bin, item);
 			
 			if (order == 0) {
 				# is a cluster member
@@ -59,9 +55,21 @@ buildBTree = function(objects, compares) {
 					bin = left;
 				}
 			}
+	}
+	
+	for(item in objects) {		
+		bin   = root;
+		index = index + 1;
+	
+		repeat {
+			bin = internal(bin, index, item);
+			
+			if (is.null(bin)) {
+				break;
+			}
 		}
 	}
 	
-	tree;
+	list(tree = tree, objects = objects, compares = compares);
 }
 
