@@ -31,30 +31,32 @@ buildBTree = function(objects, compares) {
 	internal = function(bin, index, item) {
 		order = evalIndex(bin, item);
 			
-			if (order == 0) {
-				# is a cluster member
-				bin @ members = append(bin @ members, index);
-				break;
-			} else if (order == 1) {
-				right = tree[[bin@right]];
-				
-				if (is.null(right)) {
-					# append right
-					tree[[length(tree) + 1]] = binaryTree.node(index);
-					break;
-				} else {
-					bin = right;
-				}
+		if (order == 0) {
+			# is a cluster member
+			bin @ members = append(bin @ members, index);
+			bin = NULL;
+		} else if (order == 1) {
+			right = tree[[bin@right]];
+			
+			if (is.null(right)) {
+				# append right
+				tree[[length(tree) + 1]] = binaryTree.node(index);
+				bin = NULL;
 			} else {
-				left = tree[[bin@left]];
-				
-				if (is.null(left)) {
-					tree[[length(tree) + 1]] = binaryTree.node(index);
-					break;
-				} else {
-					bin = left;
-				}
+				bin = right;
 			}
+		} else {
+			left = tree[[bin@left]];
+			
+			if (is.null(left)) {
+				tree[[length(tree) + 1]] = binaryTree.node(index);
+				bin = NULL;
+			} else {
+				bin = left;
+			}
+		}
+		
+		bin;
 	}
 	
 	for(item in objects) {		
