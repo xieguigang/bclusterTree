@@ -5,7 +5,7 @@
 #' @details the initial node content data object \code{x} is already includes into the
 #'     \code{members} slot of the created new binary tree node list object.
 #'
-binaryTree.node <- function(i) {
+binaryTree <- function(i) {
   new("binTree",
       index   = i,
       members = i,
@@ -14,7 +14,8 @@ binaryTree.node <- function(i) {
   );
 }
 
-# the index pointer just store in binTree S4 class object
+.setBtreeClass = function() {
+  # the index pointer just store in binTree S4 class object
 setClass("binTree", representation(
   # the location of key object in the input data sequence
   index   = "integer",
@@ -26,3 +27,4 @@ setClass("binTree", representation(
   # the location of the right node
   right   = "binTree"
 ));
+}

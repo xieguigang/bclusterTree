@@ -11,7 +11,7 @@
 #' @param objects this parameter should be an object list.
 #'
 buildBTree = function(objects, compares) {
-  root = binaryTree.node(1);
+  root = binaryTree(1);
   tree = list();
   tree[[1]] = root;
 
@@ -35,7 +35,7 @@ buildBTree = function(objects, compares) {
 
       if (is.null(right)) {
         # append right
-        tree[[length(tree) + 1]] = binaryTree.node(index);
+        tree[[length(tree) + 1]] = binaryTree(index);
         bin = NULL;
       } else {
         bin = right;
@@ -44,7 +44,7 @@ buildBTree = function(objects, compares) {
       left = tree[[bin@left]];
 
       if (is.null(left)) {
-        tree[[length(tree) + 1]] = binaryTree.node(index);
+        tree[[length(tree) + 1]] = binaryTree(index);
         bin = NULL;
       } else {
         bin = left;
