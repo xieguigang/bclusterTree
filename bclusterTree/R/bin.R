@@ -31,8 +31,8 @@ binaryTree <- function(i) {
     # binary tree cluster node
     members = "integer",
     # the location of the left node
-    left    = "binTree",
+    left    = "integer",
     # the location of the right node
-    right   = "binTree"
+    right   = "integer"
   ));
 }
