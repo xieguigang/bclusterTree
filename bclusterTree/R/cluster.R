@@ -5,12 +5,14 @@
 
 #End Region
 
-#' Clustering the given objects
-#'
+#' Clustering the given objects sequence
+#' 
 #' @param objects a list of data objects
 #' @param compares evaluate the orders between any element object in \code{objects},
 #'     see \code{\link{buildBTree}}.
 #'
+#' @returns a list of list key collection with multiple cluster bins
+#' 
 bcluster = function(objects, compares) {
   # each tree node in the created binary
   # tree is an object cluster

@@ -8,8 +8,10 @@
 #' Build a binary tree
 #'
 #' @param compares a comparision function that compares the order of
-#'     any two elements in objects list. this function should generates
+#'     any two elements in \code{objects} list. this function should generates
 #'     3 values for build a tree cluster:
+#' 
+#' 
 #'     0 for identical, means clustering
 #'     1 for great than, means append to right node and
 #'     -1 means less than, which will append to left node
