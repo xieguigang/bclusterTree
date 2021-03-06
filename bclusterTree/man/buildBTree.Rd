@@ -4,7 +4,7 @@
 \alias{buildBTree}
 \title{Build a binary tree}
 \usage{
-buildBTree(objects, compares, verbose = TRUE)
+buildBTree(objects, compares, verbose = FALSE)
 }
 \arguments{
 \item{objects}{this parameter should be an object list.}

@@ -16,7 +16,7 @@
 #'
 #' @param objects this parameter should be an object list.
 #'
-buildBTree = function(objects, compares, verbose = TRUE) {
+buildBTree = function(objects, compares, verbose = FALSE) {
   tree = list();
   tree[[1]] = binaryTree(1, 1);
   closure   = environment();
@@ -42,7 +42,7 @@ buildBTree = function(objects, compares, verbose = TRUE) {
     if (order == 0) {
       if (verbose) {
         print(sprintf("[=] append %s", bin$ref));
-        str(bin);
+        # str(bin);
       }
 
       # is a cluster member
