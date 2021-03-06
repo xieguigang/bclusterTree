@@ -71,7 +71,7 @@ buildBTree = function(objects, compares) {
     bin;
   }
 
-  for(item in objects) {
+  for(item in objects[2:length(objects)]) {
     bin   = root;
     index = index + 1;
 
