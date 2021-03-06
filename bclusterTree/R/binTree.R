@@ -1,6 +1,6 @@
 #Region "Microsoft.ROpen::b305b112c18b2404cfc0e0de2ed50061, R\binTree.R"
 
-    # Summaries:
+# Summaries:
 
 
 #End Region
@@ -40,37 +40,31 @@ buildBTree = function(objects, compares) {
       # is a cluster member
       bin@members = append(bin@members, index);
       tree[[bin@ref]] = bin;
-      save(tree);
       bin = NULL;
     } else if (order == 1) {
       if (bin@right <= 0) {
         # append right
         i = length(tree) + 1;
         bin@right = i;
-
         tree[[i]] = binaryTree(index, i);
         tree[[bin@ref]] = bin;
-
-        save(tree);
         bin = NULL;
       } else {
         bin = tree[[bin@right]];
       }
-    } else {   
+    } else {
       if (bin@left <= 0) {
         i = length(tree) + 1;
         bin@left  = i;
-
         tree[[i]] = binaryTree(index, i);
         tree[[bin@ref]] = bin;
-
-        save(tree);
-
         bin = NULL;
       } else {
         bin = tree[[bin@left]];
       }
     }
+
+    save(tree);
 
     bin;
   }
