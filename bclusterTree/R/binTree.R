@@ -20,6 +20,7 @@ buildBTree = function(objects, compares) {
   root = binaryTree(1);
   tree = list();
   tree[[1]] = root;
+  closure   = environment();
 
   evalIndex = function(bin, y) {
     x = objects[[bin @ index]];
@@ -27,26 +28,39 @@ buildBTree = function(objects, compares) {
     i;
   }
 
-  index = 1;
+  save = function(x) assign("tree", x, envir = closure);
+  read = function() get("tree", envir = closure);
 
+  index    = 1;
   internal = function(bin, index, item) {
     order = evalIndex(bin, item);
 
     if (order == 0) {
       # is a cluster member
-      bin @ members = append(bin @ members, index);
+      bin@members = append(bin@members, index);
       bin = NULL;
-    } else if (order == 1) {      
+    } else if (order == 1) {
+      tree = read();
+
       if (bin@right <= 0) {
         # append right
-        tree[[length(tree) + 1]] = binaryTree(index);
+        i = length(tree) + 1;
+        tree[[i]] = binaryTree(index);
+        bin@right = i;
+        save(tree);
         bin = NULL;
       } else {
         bin = tree[[bin@right]];
       }
     } else {   
+      tree = read();
+
       if (bin@left <= 0) {
-        tree[[length(tree) + 1]] = binaryTree(index);
+        i = length(tree) + 1;
+        tree[[i]] = binaryTree(index);
+        bin@left  = i;
+        save(tree);
+
         bin = NULL;
       } else {
         bin = tree[[bin@left]];
