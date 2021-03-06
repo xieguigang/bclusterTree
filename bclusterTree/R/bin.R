@@ -1,3 +1,11 @@
+#Region "Microsoft.ROpen::36920007762967649fff8c66d3c8a6dd, R\bin.R"
+
+    # Summaries:
+
+    # binaryTree <- function(i) {...
+
+#End Region
+
 #' Create a new tree node
 #'
 #' @param x a node content data object

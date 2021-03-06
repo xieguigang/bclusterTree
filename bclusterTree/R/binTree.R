@@ -1,3 +1,9 @@
+#Region "Microsoft.ROpen::b305b112c18b2404cfc0e0de2ed50061, R\binTree.R"
+
+    # Summaries:
+
+
+#End Region
 
 #' Build a binary tree
 #'
@@ -69,4 +75,3 @@ buildBTree = function(objects, compares) {
 
   tree;
 }
-
