@@ -7,12 +7,14 @@
 binaryTree(i, ref)
 }
 \arguments{
-\item{x}{a node content data object}
+\item{i}{the index position of the content data object}
+
+\item{ref}{the reference location of the current tree node}
 }
 \description{
 Create a new tree node
 }
 \details{
-the initial node content data object \code{x} is already includes into the
+the initial node content data object \code{i} is already includes into the
     \code{members} slot of the created new binary tree node list object.
 }

@@ -11,11 +11,12 @@
 #'     any two elements in \code{objects} list. this function should generates
 #'     3 values for build a tree cluster:
 #' 
+#' \enumerate{
+#'     \item \code{0} for identical, means clustering
+#'     \item \code{1} for great than, means append to right node and
+#'     \item \code{-1} means less than, which will append to left node
+#' }
 #' 
-#'     0 for identical, means clustering
-#'     1 for great than, means append to right node and
-#'     -1 means less than, which will append to left node
-#'
 #' @param objects this parameter should be an object list.
 #'
 buildBTree = function(objects, compares, verbose = FALSE) {

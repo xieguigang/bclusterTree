@@ -2,7 +2,7 @@
 % Please edit documentation in R/cluster.R
 \name{bcluster}
 \alias{bcluster}
-\title{Clustering the given objects}
+\title{Clustering the given objects sequence}
 \usage{
 bcluster(objects, compares)
 }
@@ -12,6 +12,9 @@ bcluster(objects, compares)
 \item{compares}{evaluate the orders between any element object in \code{objects},
 see \code{\link{buildBTree}}.}
 }
+\value{
+a list of list key collection with multiple cluster bins
+}
 \description{
-Clustering the given objects
+Clustering the given objects sequence
 }

@@ -8,9 +8,10 @@
 
 #' Create a new tree node
 #'
-#' @param x a node content data object
-#'
-#' @details the initial node content data object \code{x} is already includes into the
+#' @param i the index position of the content data object
+#' @param ref the reference location of the current tree node
+#' 
+#' @details the initial node content data object \code{i} is already includes into the
 #'     \code{members} slot of the created new binary tree node list object.
 #'
 binaryTree <- function(i, ref) {
