@@ -1,8 +1,8 @@
 #Region "Microsoft.ROpen::112bec74cd1c1dab943d0d5a76b0e1ce, R\zzz.R"
 
-    # Summaries:
+# Summaries:
 
-    # .onLoad <- function(libname, pkgname) {...
+# .onLoad <- function(libname, pkgname) {...
 
 #End Region
 
@@ -11,7 +11,7 @@
 .onLoad <- function(libname, pkgname) {
   require(VisualBasic.R);
 
-  # set class information for 
+  # set class information for
   # run build btree clustering
   # .setBtreeClass();
 }

@@ -1,8 +1,8 @@
 #Region "Microsoft.ROpen::36920007762967649fff8c66d3c8a6dd, R\bin.R"
 
-    # Summaries:
+# Summaries:
 
-    # binaryTree <- function(i) {...
+# binaryTree <- function(i) {...
 
 #End Region
 
@@ -15,11 +15,11 @@
 #'
 binaryTree <- function(i, ref) {
   list(
-      index   = i,
-      members = i,
-      left    = -1,
-      right   = -1,
-      ref     = ref
+    index   = i,
+    members = i,
+    left    = -1,
+    right   = -1,
+    ref     = ref
   );
 }
 
