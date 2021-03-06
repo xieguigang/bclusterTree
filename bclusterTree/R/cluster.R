@@ -21,7 +21,7 @@ bcluster = function(objects, compares) {
     keys = 1:length(objects);
   }
 
-  names(btree) = sprintf("B%s", 1:length(btree));
+  names(btree) = sprintf("BIN-%s", 1:length(btree));
 
   lapply(btree, function(bin) {
     keys[bin$members];
