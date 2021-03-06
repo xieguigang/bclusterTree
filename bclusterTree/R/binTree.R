@@ -22,14 +22,16 @@ buildBTree = function(objects, compares) {
   tree[[1]] = root;
   closure   = environment();
 
+  save = function(x) assign("tree", x, envir = closure);
+  read = function() get("tree", envir = closure);
+
   evalIndex = function(bin, y) {
-    x = objects[[bin @ index]];
+    x = objects[[bin$index]];
     i = compares(x, y);
     i;
   }
 
-  save = function(x) assign("tree", x, envir = closure);
-  read = function() get("tree", envir = closure);
+  save(tree);
 
   index    = 1;
   internal = function(bin, index, item) {
@@ -38,29 +40,29 @@ buildBTree = function(objects, compares) {
 
     if (order == 0) {
       # is a cluster member
-      bin@members = append(bin@members, index);
-      tree[[bin@ref]] = bin;
+      bin$members = append(bin$members, index);
+      tree[[bin$ref]] = bin;
       bin = NULL;
     } else if (order == 1) {
-      if (bin@right <= 0) {
+      if (bin$right <= 0) {
         # append right
         i = length(tree) + 1;
-        bin@right = i;
+        bin$right = i;
         tree[[i]] = binaryTree(index, i);
-        tree[[bin@ref]] = bin;
+        tree[[bin$ref]] = bin;
         bin = NULL;
       } else {
-        bin = tree[[bin@right]];
+        bin = tree[[bin$right]];
       }
     } else {
-      if (bin@left <= 0) {
+      if (bin$left <= 0) {
         i = length(tree) + 1;
-        bin@left  = i;
+        bin$left  = i;
         tree[[i]] = binaryTree(index, i);
-        tree[[bin@ref]] = bin;
+        tree[[bin$ref]] = bin;
         bin = NULL;
       } else {
-        bin = tree[[bin@left]];
+        bin = tree[[bin$left]];
       }
     }
 
