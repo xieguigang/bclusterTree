@@ -36,24 +36,20 @@ buildBTree = function(objects, compares) {
       # is a cluster member
       bin @ members = append(bin @ members, index);
       bin = NULL;
-    } else if (order == 1) {
-      right = tree[[bin@right]];
-
-      if (right <= 0) {
+    } else if (order == 1) {      
+      if (bin@right <= 0) {
         # append right
         tree[[length(tree) + 1]] = binaryTree(index);
         bin = NULL;
       } else {
-        bin = right;
+        bin = tree[[bin@right]];
       }
-    } else {
-      left = tree[[bin@left]];
-
-      if (left <= 0) {
+    } else {   
+      if (bin@left <= 0) {
         tree[[length(tree) + 1]] = binaryTree(index);
         bin = NULL;
       } else {
-        bin = left;
+        bin = tree[[bin@left]];
       }
     }
 

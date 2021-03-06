@@ -9,3 +9,5 @@ index = function(a, b) {
 		-1
 	}
 }
+
+buildBTree(x, index)
