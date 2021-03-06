@@ -16,15 +16,15 @@ binaryTree <- function(i) {
 
 .setBtreeClass = function() {
   # the index pointer just store in binTree S4 class object
-setClass("binTree", representation(
-  # the location of key object in the input data sequence
-  index   = "integer",
-  # a vector of object index that contains in current
-  # binary tree cluster node
-  members = "integer",
-  # the location of the left node
-  left    = "binTree",
-  # the location of the right node
-  right   = "binTree"
-));
+  setClass("binTree", representation(
+    # the location of key object in the input data sequence
+    index   = "integer",
+    # a vector of object index that contains in current
+    # binary tree cluster node
+    members = "integer",
+    # the location of the left node
+    left    = "binTree",
+    # the location of the right node
+    right   = "binTree"
+  ));
 }

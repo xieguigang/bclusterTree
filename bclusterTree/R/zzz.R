@@ -1,7 +1,7 @@
 #' Package loader
 #'
 .onLoad <- function(libname, pkgname) {
-.setBtreeClass();
+  .setBtreeClass();
 }
 
 .flashLoad <- function() .onLoad(NULL, NULL);
