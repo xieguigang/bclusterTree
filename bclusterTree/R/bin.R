@@ -13,12 +13,13 @@
 #' @details the initial node content data object \code{x} is already includes into the
 #'     \code{members} slot of the created new binary tree node list object.
 #'
-binaryTree <- function(i) {
+binaryTree <- function(i, ref) {
   new("binTree",
       index   = i,
       members = i,
       left    = -1,
-      right   = -1
+      right   = -1,
+      ref     = ref
   );
 }
 
@@ -27,6 +28,8 @@ binaryTree <- function(i) {
   setClass("binTree", representation(
     # the location of key object in the input data sequence
     index   = "numeric",
+    # the reference location of current tree node in the tree list data
+    ref     = "numeric",
     # a vector of object index that contains in current
     # binary tree cluster node
     members = "numeric",

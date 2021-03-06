@@ -4,7 +4,7 @@
 \alias{binaryTree}
 \title{Create a new tree node}
 \usage{
-binaryTree(i)
+binaryTree(i, ref)
 }
 \arguments{
 \item{x}{a node content data object}

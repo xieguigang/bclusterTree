@@ -17,7 +17,7 @@
 #' @param objects this parameter should be an object list.
 #'
 buildBTree = function(objects, compares) {
-  root = binaryTree(1);
+  root = binaryTree(1, 1);
   tree = list();
   tree[[1]] = root;
   closure   = environment();
@@ -34,31 +34,36 @@ buildBTree = function(objects, compares) {
   index    = 1;
   internal = function(bin, index, item) {
     order = evalIndex(bin, item);
+    tree = read();
 
     if (order == 0) {
       # is a cluster member
       bin@members = append(bin@members, index);
+      tree[[bin@ref]] = bin;
+      save(tree);
       bin = NULL;
     } else if (order == 1) {
-      tree = read();
-
       if (bin@right <= 0) {
         # append right
         i = length(tree) + 1;
-        tree[[i]] = binaryTree(index);
         bin@right = i;
+
+        tree[[i]] = binaryTree(index, i);
+        tree[[bin@ref]] = bin;
+
         save(tree);
         bin = NULL;
       } else {
         bin = tree[[bin@right]];
       }
     } else {   
-      tree = read();
-
       if (bin@left <= 0) {
         i = length(tree) + 1;
-        tree[[i]] = binaryTree(index);
         bin@left  = i;
+
+        tree[[i]] = binaryTree(index, i);
+        tree[[bin@ref]] = bin;
+
         save(tree);
 
         bin = NULL;
