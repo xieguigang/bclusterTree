@@ -17,13 +17,14 @@
 #' @param objects this parameter should be an object list.
 #'
 buildBTree = function(objects, compares, verbose = TRUE) {
-  root = binaryTree(1, 1);
   tree = list();
-  tree[[1]] = root;
+  tree[[1]] = binaryTree(1, 1);
   closure   = environment();
 
   save = function(x) assign("tree", x, envir = closure);
-  read = function() get("tree", envir = closure);
+  read = function() {
+    get("tree", envir = closure);
+  };
 
   evalIndex = function(bin, y) {
     x = objects[[bin$index]];
@@ -41,6 +42,7 @@ buildBTree = function(objects, compares, verbose = TRUE) {
     if (order == 0) {
       if (verbose) {
         print(sprintf("[=] append %s", bin$ref));
+        str(bin);
       }
 
       # is a cluster member
@@ -76,7 +78,7 @@ buildBTree = function(objects, compares, verbose = TRUE) {
   }
 
   for(item in objects[2:length(objects)]) {
-    bin   = root;
+    bin   = read()[[1]];
     index = index + 1;
 
     repeat {
