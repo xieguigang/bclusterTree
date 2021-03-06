@@ -22,7 +22,7 @@ buildBTree = function(objects, compares) {
   tree[[1]] = root;
 
   evalIndex = function(bin, y) {
-    x = object[[bin @ index]];
+    x = objects[[bin @ index]];
     i = compares(x, y);
     i;
   }
@@ -39,7 +39,7 @@ buildBTree = function(objects, compares) {
     } else if (order == 1) {
       right = tree[[bin@right]];
 
-      if (is.null(right)) {
+      if (right <= 0) {
         # append right
         tree[[length(tree) + 1]] = binaryTree(index);
         bin = NULL;
@@ -49,7 +49,7 @@ buildBTree = function(objects, compares) {
     } else {
       left = tree[[bin@left]];
 
-      if (is.null(left)) {
+      if (left <= 0) {
         tree[[length(tree) + 1]] = binaryTree(index);
         bin = NULL;
       } else {
