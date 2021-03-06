@@ -10,4 +10,4 @@ index = function(a, b) {
 	}
 }
 
-bcluster(x, index)
+str(bcluster(x, index));
