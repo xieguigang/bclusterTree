@@ -1,5 +1,4 @@
-x = runif(100);
-
+x     = runif(100);
 index = function(a, b) {
 	if (abs(a - b) <= 0.1) {
 		0
@@ -9,8 +8,6 @@ index = function(a, b) {
 		-1
 	}
 }
-
-str(bcluster(x, index));
 
 c = bcluster(x, index)
 
