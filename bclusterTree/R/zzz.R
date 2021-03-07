@@ -13,7 +13,7 @@
 
   # set class information for
   # run build btree clustering
-  # .setBtreeClass();
+  .setBtreeClass();
 }
 
 .flashLoad <- function() .onLoad(NULL, NULL);

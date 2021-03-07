@@ -15,7 +15,7 @@
 #'     \code{members} slot of the created new binary tree node list object.
 #'
 binaryTree <- function(i, ref) {
-  list(
+  new("binTree", 
     index   = i,
     members = i,
     left    = -1,
@@ -24,19 +24,19 @@ binaryTree <- function(i, ref) {
   );
 }
 
-# .setBtreeClass = function() {
-#   # the index pointer just store in binTree S4 class object
-#   setClass("binTree", representation(
-#     # the location of key object in the input data sequence
-#     index   = "numeric",
-#     # the reference location of current tree node in the tree list data
-#     ref     = "numeric",
-#     # a vector of object index that contains in current
-#     # binary tree cluster node
-#     members = "numeric",
-#     # the location of the left node
-#     left    = "numeric",
-#     # the location of the right node
-#     right   = "numeric"
-#   ));
-# }
+.setBtreeClass = function() {
+  # the index pointer just store in binTree S4 class object
+  setClass("binTree", representation(
+    # the location of key object in the input data sequence
+    index   = "numeric",
+    # the reference location of current tree node in the tree list data
+    ref     = "numeric",
+    # a vector of object index that contains in current
+    # binary tree cluster node
+    members = "numeric",
+    # the location of the left node
+    left    = "numeric",
+    # the location of the right node
+    right   = "numeric"
+  ));
+}
