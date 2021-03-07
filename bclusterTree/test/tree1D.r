@@ -11,3 +11,10 @@ index = function(a, b) {
 }
 
 str(bcluster(x, index));
+
+c = bcluster(x, index)
+
+for(name in names(c)) {
+	print(name);
+	print(x[c[[name]]]);
+}
