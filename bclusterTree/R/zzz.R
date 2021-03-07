@@ -9,7 +9,7 @@
 #' Package loader
 #'
 .onLoad <- function(libname, pkgname) {
-  require(VisualBasic.R);
+  # require(VisualBasic.R);
 
   # set class information for
   # run build btree clustering

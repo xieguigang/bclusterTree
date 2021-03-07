@@ -1,11 +1,11 @@
 Package: bclusterTree
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
+Title: Binary Cluster Tree
+Version: 1.1.0
+Author: xieguigang
+Maintainer: xieguigang <xie.guigang@gcmodeller.org>
 Description: a generic data object clustering based on binary tree similarity measurement
-License: What license is it under?
+License: MIT
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
