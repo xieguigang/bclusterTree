@@ -87,3 +87,60 @@ for(name in names(c)) {
 Run the example demo code, then you should get a image plot looks liked:
 
 ![](docs/Rplot.png)
+
+## A more general demo: clustering of text segments
+
+By defining a set of small text segments, we can apply of the edit distance measurement on these text segments, then with the threshold, we could build a binary tree:
+
+```R
+require(VisualBasic.R);
+
+x = c("TTTTTc","AAAc","TGGGG","ATTTG","TTTTTTT",
+"AAAAAAAA","ccccccccccc","GGGGGGGTGGGG","ccccccTTT",
+"AAAAcccc","TGTGGGGG","GGGGGcccc","ATATATTTTAA",
+"cccccccG","GGGGGGG","AAAAAATTTAA","ccccccTTccc"
+);
+
+index = function(t1, t2) {
+	d = levenshtein.distance(t1, t2);
+	d = 1 - d / max(nchar(t1), nchar(t2));
+	
+	if (d >= 0.5) {
+		0
+	} else if (d >= 0.3) {
+		1;
+	} else {
+		-1;
+	}
+}
+```
+
+Run the text clustering and then print the output cluster result, we could find out that all similar text segments was grouping into on clusters, and the result will looks like:
+
+```R
+c = bclusterTree::bcluster(x, index)
+
+for(name in names(c)) {
+	print(name);
+	print(x[c[[name]]]);
+}
+
+# [1] "BIN-1"
+# [1] "TTTTTc"  "ATTTG"   "TTTTTTT"
+# [1] "BIN-2"
+# [1] "AAAc"     "AAAAcccc"
+# [1] "BIN-3"
+# [1] "TGGGG"    "TGTGGGGG" "GGGGGGG" 
+# [1] "BIN-4"
+# [1] "AAAAAAAA"
+# [1] "BIN-5"
+# [1] "ccccccccccc" "ccccccTTT"   "cccccccG"    "ccccccTTccc"
+# [1] "BIN-6"
+# [1] "GGGGGGGTGGGG"
+# [1] "BIN-7"
+# [1] "GGGGGcccc"
+# [1] "BIN-8"
+# [1] "ATATATTTTAA"
+# [1] "BIN-9"
+# [1] "AAAAAATTTAA"
+```
