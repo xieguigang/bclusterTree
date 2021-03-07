@@ -1,4 +1,4 @@
-# bclusterTree
+# bclusterTree [![DOI](https://zenodo.org/badge/345042266.svg)](https://zenodo.org/badge/latestdoi/345042266)
 
 a generic data object clustering based on binary tree similarity measurement
 
