@@ -8,7 +8,7 @@ x = c("TTTTTc","AAAc","TGGGG","ATTTG","TTTTTTT",
 
 index = function(t1, t2) {
 	d = levenshtein.distance(t1, t2);
-	d = 1 - d / max(nchar(t1), nchar(t2));
+	d = 1 - d / ((nchar(t1) + nchar(t2)) / 2);
 	
 	if (d >= 0.5) {
 		0

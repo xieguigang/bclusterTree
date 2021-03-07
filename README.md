@@ -103,7 +103,7 @@ x = c("TTTTTc","AAAc","TGGGG","ATTTG","TTTTTTT",
 
 index = function(t1, t2) {
 	d = levenshtein.distance(t1, t2);
-	d = 1 - d / max(nchar(t1), nchar(t2));
+	d = 1 - d / ((nchar(t1) + nchar(t2)) / 2);
 	
 	if (d >= 0.5) {
 		0
@@ -126,21 +126,23 @@ for(name in names(c)) {
 }
 
 # [1] "BIN-1"
-# [1] "TTTTTc"  "ATTTG"   "TTTTTTT"
+# [1] "TTTTTc"  "TTTTTTT"
 # [1] "BIN-2"
-# [1] "AAAc"     "AAAAcccc"
+# [1] "AAAc"
 # [1] "BIN-3"
 # [1] "TGGGG"    "TGTGGGGG" "GGGGGGG" 
 # [1] "BIN-4"
-# [1] "AAAAAAAA"
+# [1] "ATTTG"
 # [1] "BIN-5"
-# [1] "ccccccccccc" "ccccccTTT"   "cccccccG"    "ccccccTTccc"
+# [1] "AAAAAAAA"    "AAAAAATTTAA"
 # [1] "BIN-6"
-# [1] "GGGGGGGTGGGG"
+# [1] "ccccccccccc" "ccccccTTT"   "cccccccG"    "ccccccTTccc"
 # [1] "BIN-7"
-# [1] "GGGGGcccc"
+# [1] "GGGGGGGTGGGG"
 # [1] "BIN-8"
-# [1] "ATATATTTTAA"
+# [1] "AAAAcccc"
 # [1] "BIN-9"
-# [1] "AAAAAATTTAA"
+# [1] "GGGGGcccc"
+# [1] "BIN-10"
+# [1] "ATATATTTTAA"
 ```
