@@ -30,7 +30,7 @@ buildBTree = function(objects, compares, verbose = FALSE) {
   };
 
   evalIndex = function(bin, y) {
-    x = objects[[bin$index]];
+    x = objects[[bin@index]];
     i = compares(x, y);
     i;
   }
@@ -44,34 +44,34 @@ buildBTree = function(objects, compares, verbose = FALSE) {
 
     if (order == 0) {
       if (verbose) {
-        print(sprintf("[=] append %s", bin$ref));
+        print(sprintf("[=] append %s", bin@ref));
         # str(bin);
       }
 
       # is a cluster member
-      bin$members = append(bin$members, index);
-      tree[[bin$ref]] = bin;
+      bin@members = append(bin@members, index);
+      tree[[bin@ref]] = bin;
       bin = NULL;
     } else if (order == 1) {
-      if (bin$right <= 0) {
+      if (bin@right <= 0) {
         # append right
         i = length(tree) + 1;
-        bin$right = i;
+        bin@right = i;
         tree[[i]] = binaryTree(index, i);
-        tree[[bin$ref]] = bin;
+        tree[[bin@ref]] = bin;
         bin = NULL;
       } else {
-        bin = tree[[bin$right]];
+        bin = tree[[bin@right]];
       }
     } else {
-      if (bin$left <= 0) {
+      if (bin@left <= 0) {
         i = length(tree) + 1;
-        bin$left  = i;
+        bin@left  = i;
         tree[[i]] = binaryTree(index, i);
-        tree[[bin$ref]] = bin;
+        tree[[bin@ref]] = bin;
         bin = NULL;
       } else {
-        bin = tree[[bin$left]];
+        bin = tree[[bin@left]];
       }
     }
 
