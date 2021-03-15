@@ -19,7 +19,7 @@
 #' 
 #' @param objects this parameter should be an object list.
 #'
-buildBTree = function(objects, compares, verbose = FALSE) {
+buildBTree = function(objects, compares, verbose = FALSE, show_progress = TRUE) {
   tree = list();
   tree[[1]] = binaryTree(1, 1);
   closure   = environment();
@@ -80,6 +80,8 @@ buildBTree = function(objects, compares, verbose = FALSE) {
     bin;
   }
 
+  tick = VisualBasic.R::tick.helper(length(objects));
+
   for(item in objects[2:length(objects)]) {
     bin   = read()[[1]];
     index = index + 1;
@@ -91,6 +93,10 @@ buildBTree = function(objects, compares, verbose = FALSE) {
         break;
       }
     }
+	
+	if (show_progress) {
+		tick();
+	}
   }
 
   tree;

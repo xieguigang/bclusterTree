@@ -13,11 +13,11 @@
 #'
 #' @returns a list of list key collection with multiple cluster bins
 #' 
-bcluster = function(objects, compares) {
+bcluster = function(objects, compares, show_progress = TRUE) {
   # each tree node in the created binary
   # tree is an object cluster
-  btree = buildBTree(objects, compares);
-  keys = names(objects);
+  btree = buildBTree(objects, compares, show_progress = show_progress);
+  keys  = names(objects);
 
   if (is.null(keys)) {
     keys = 1:length(objects);
