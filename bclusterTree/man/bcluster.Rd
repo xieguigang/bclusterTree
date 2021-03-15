@@ -4,7 +4,7 @@
 \alias{bcluster}
 \title{Clustering the given objects sequence}
 \usage{
-bcluster(objects, compares)
+bcluster(objects, compares, show_progress = TRUE)
 }
 \arguments{
 \item{objects}{a list of data objects}
