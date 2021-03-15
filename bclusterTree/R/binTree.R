@@ -82,6 +82,10 @@ buildBTree = function(objects, compares, verbose = FALSE, show_progress = TRUE) 
 
   tick = VisualBasic.R::tick.helper(length(objects));
 
+  if (show_progress) {
+	cat("build a binary tree for object clustering...\n\n");
+  }
+
   for(item in objects[2:length(objects)]) {
     bin   = read()[[1]];
     index = index + 1;
@@ -98,6 +102,10 @@ buildBTree = function(objects, compares, verbose = FALSE, show_progress = TRUE) 
 		tick();
 	}
   }
+
+  if (show_progress) {
+	cat("\n\n");
+  }  
 
   tree;
 }
