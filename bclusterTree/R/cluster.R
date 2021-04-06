@@ -46,9 +46,15 @@ bnetwork = function(objects, compares, show_progress = TRUE) {
   names(btree) = bins;
 
   lapply(btree, function(bin) {
+    if (bin@right <= 0) {
+      nextKey = NULL;
+    } else {
+      nextKey = bins[bin@right];
+    }
+
     list(
       "members" = keys[bin@members],
-      "next"    = ifelse(bin@right <= 0, NULL, bins[bin@right])
+      "next"    = nextKey
     );
   });
 }
