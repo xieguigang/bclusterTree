@@ -42,7 +42,13 @@ bnetwork = function(objects, compares, show_progress = TRUE) {
     keys = 1:length(objects);
   }
 
-  names(btree) = sprintf("BIN-%s", 1:length(btree));
+  bins = sprintf("BIN-%s", 1:length(btree));
+  names(btree) = bins;
 
-
+  lapply(btree, function(bin) {
+    list(
+      "members" = keys[bin@members],
+      "next"    = ifelse(bin@right <= 0, NULL, bins[bin@right])
+    );
+  });
 }

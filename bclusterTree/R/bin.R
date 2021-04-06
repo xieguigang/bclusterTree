@@ -10,12 +10,12 @@
 #'
 #' @param i the index position of the content data object
 #' @param ref the reference location of the current tree node
-#' 
+#'
 #' @details the initial node content data object \code{i} is already includes into the
 #'     \code{members} slot of the created new binary tree node list object.
 #'
 binaryTree <- function(i, ref) {
-  new("binTree", 
+  new("binTree",
     index   = i,
     members = i,
     left    = -1,
