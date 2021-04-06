@@ -10,13 +10,13 @@
 #' @param compares a comparision function that compares the order of
 #'     any two elements in \code{objects} list. this function should generates
 #'     3 values for build a tree cluster:
-#' 
+#'
 #' \enumerate{
 #'     \item \code{0} for identical, means clustering
 #'     \item \code{1} for great than, means append to right node and
 #'     \item \code{-1} means less than, which will append to left node
 #' }
-#' 
+#'
 #' @param objects this parameter should be an object list.
 #'
 buildBTree = function(objects, compares, verbose = FALSE, show_progress = TRUE) {
@@ -83,9 +83,9 @@ buildBTree = function(objects, compares, verbose = FALSE, show_progress = TRUE) 
   tick = VisualBasic.R::tick.helper(length(objects));
 
   if (show_progress) {
-	print("build a binary tree for object clustering...");
-	cat("\n");
-	cat(" Progress ");
+    print("build a binary tree for object clustering...");
+    cat("\n");
+    cat(" Progress ");
   }
 
   for(item in objects[2:length(objects)]) {
@@ -99,15 +99,15 @@ buildBTree = function(objects, compares, verbose = FALSE, show_progress = TRUE) 
         break;
       }
     }
-	
-	if (show_progress) {
-		tick();
-	}
+
+    if (show_progress) {
+      tick();
+    }
   }
 
   if (show_progress) {
-	cat("\n\n");
-  }  
+    cat("\n\n");
+  }
 
   tree;
 }
